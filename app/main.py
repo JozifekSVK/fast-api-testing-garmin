@@ -14,6 +14,9 @@ class UserCreate(BaseModel):
 async def create_user(user_data: UserCreate):
     user_id = user_data.user_id
     username = user_data.username
+
+    print(user_id)
+    print(username)
     return {
         "msg": "we got data succesfully",
         "user_id": user_id,
