@@ -2,18 +2,27 @@
 
 import uvicorn
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
+class UserCreate(BaseModel):
+    user_id: int
+    username: str
+
+@app.post("/post-req/")
+async def create_user(user_data: UserCreate):
+    user_id = user_data.user_id
+    username = user_data.username
+    return {
+        "msg": "we got data succesfully",
+        "user_id": user_id,
+        "username": username,
+    }
 
 @app.get("/")
 async def read_root():
-    return {"Hello": "World"}
-
-@app.post("/post-req")
-async def read_root(data):
-    print(data)
-    return {"Hello": "world"}
+    return {"Hello": "World, new version"}
 
 
 # if __name__ == "__main__":
