@@ -22,8 +22,6 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 @app.post("/post-req/")
 async def create_user(request_data: dict) -> dict:
-    for element in request_data.activityFiles:
-        print(element)
 
     print(request_data)
     return {
