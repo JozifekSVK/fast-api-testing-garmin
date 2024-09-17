@@ -7,20 +7,16 @@ from pydantic import BaseModel
 app = FastAPI()
 
 class UserCreate(BaseModel):
-    user_id: int
-    username: str
+    activities: list
 
 @app.post("/post-req/")
 async def create_user(user_data: UserCreate):
-    user_id = user_data.user_id
-    username = user_data.username
+    for element in user_data.activities:
+        print(element)
 
-    print(user_id)
-    print(username)
+    print(user_data)
     return {
-        "msg": "we got data succesfully",
-        "user_id": user_id,
-        "username": username,
+        "msg": "we got data succesfully"
     }
 
 @app.get("/")
