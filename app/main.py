@@ -1,25 +1,19 @@
+# main.py
+
+import uvicorn
 from fastapi import FastAPI
-from pydantic import BaseModel
-
-
-class Item(BaseModel):
-    name: str
-    price: float
-
 
 app = FastAPI()
 
 
 @app.get("/")
-async def read_item():
-    return {"message": "Welcome to our app"}
+async def read_root():
+    return {"Hello": "World"}
+
+@app.post("/post-req")
+async def read_root(data):
+    return {"Hello": "world"}
 
 
-@app.get("/hello/{name}")
-async def read_item(name):
-    return {"message": f"Hello {name}, how are you?"}
-
-
-@app.post("/items/")
-async def create_item(item: Item):
-    return {"message": f"{item.name} is priced at £{item.price}"}
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
