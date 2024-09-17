@@ -21,11 +21,11 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 	return JSONResponse(content=content, status_code=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 @app.post("/post-req/")
-async def create_user(user_data: UserCreate):
-    for element in user_data.activities:
-        print(element)
+async def create_user(request_data: dict) -> dict:
+    # for element in request_data.activities:
+    #     print(element)
 
-    print(user_data)
+    print(request_data)
     return {
         "msg": "we got data succesfully"
     }
