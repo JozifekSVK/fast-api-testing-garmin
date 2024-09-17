@@ -12,6 +12,7 @@ async def read_root():
 
 @app.post("/post-req")
 async def read_root(data):
+    print(data)
     return {"Hello": "world"}
 
 
