@@ -1,7 +1,7 @@
 # main.py
 
 import uvicorn
-# import requests
+import requests
 from fastapi import FastAPI
 from pydantic import BaseModel
 import logging
