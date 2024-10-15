@@ -1,7 +1,7 @@
 # main.py
 
 import uvicorn
-import requests
+# import requests
 from fastapi import FastAPI
 from pydantic import BaseModel
 import logging
@@ -26,9 +26,9 @@ async def create_user(request_data: dict) -> dict:
 
     print(request_data)
 
-    url = 'https://myfirstgarminapi.duckdns.org/garmin-api/fit-file'
-    x = requests.post(url, data = request_data)
-    print(x.text)
+    # url = 'https://myfirstgarminapi.duckdns.org/garmin-api/fit-file'
+    # x = requests.post(url, data = request_data)
+    # print(x.text)
 
     return {
         "msg": "we got data succesfully"
