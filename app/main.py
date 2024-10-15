@@ -26,9 +26,20 @@ async def create_user(request_data: dict) -> dict:
 
     print(request_data)
 
-    # url = 'https://myfirstgarminapi.duckdns.org/garmin-api/fit-file'
-    # x = requests.post(url, data = request_data)
-    # print(x.text)
+    data_send = {
+        "activities":[
+            {
+                "userId": "4aacafe82427c251df9c9592d0c06768",
+                "uploadStartTimeInSeconds":1444937651,
+                "uploadEndTimeInSeconds":1444937902,
+                "callbackURL":"https://apis.garmin.com/wellness-api/rest/activities?uploadStartTimeInSeconds=1444937651&uploadEndTimeInSeconds=1444937902"
+            }
+        ]
+    }
+
+    url = 'https://myfirstgarminapi.duckdns.org/garmin-api/fit-file'
+    x = requests.post(url, data = data_send)
+    print(x.text)
 
     return {
         "msg": "we got data succesfully"
