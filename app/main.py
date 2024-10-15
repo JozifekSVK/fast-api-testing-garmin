@@ -38,7 +38,7 @@ async def create_user(request_data: dict) -> dict:
     }
 
     url = 'https://myfirstgarminapi.duckdns.org/garmin-api/fit-file'
-    x = requests.post(url, data = data_send)
+    x = requests.post(url, json = data_send)
     print(x.text)
 
     return {
