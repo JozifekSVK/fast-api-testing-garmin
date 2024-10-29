@@ -24,7 +24,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 @app.post("/post-req/")
 async def create_user(request_data: dict) -> dict:
 
-    url = 'http://http://147.175.144.168:8085/garmin-api/fit-file'
+    url = 'http://147.175.144.168:8085/garmin-api/fit-file'
     x = requests.post(url, json = request_data)
     print(x.text)
 
