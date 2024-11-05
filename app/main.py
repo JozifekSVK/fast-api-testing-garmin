@@ -5,6 +5,7 @@ import requests
 from fastapi import FastAPI
 from pydantic import BaseModel
 import logging
+from threading import Thread
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -25,7 +26,8 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 async def create_user(request_data: dict) -> dict:
 
     url = 'http://147.175.144.168:8085/garmin-api/fit-file'
-    await requests.post(url, json = request_data)
+    
+    Thread(target=post, args=(url,), kwargs={'json': request_data}).start()
 
     return {
         "msg": "we got data succesfully"
