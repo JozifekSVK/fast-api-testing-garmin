@@ -26,7 +26,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 @app.post("/post-req/")
 async def create_user(request_data: dict) -> dict:
 
-    url = 'http://147.175.144.168:8085/fit-file'
+    url = 'http://147.175.144.168:8181/fit-file'
     
     Thread(target=post, args=(url,), kwargs={'json': request_data}).start()
 
