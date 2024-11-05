@@ -1,5 +1,6 @@
 # main.py
 
+from requests import post
 import uvicorn
 import requests
 from fastapi import FastAPI
